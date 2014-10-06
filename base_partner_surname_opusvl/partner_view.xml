@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- Add first and last name in partner view form  -->
+        <record id="view_partner_surname_form" model="ir.ui.view">
+            <field name="name">res.partner.surname.form.inherit - partner_surname</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="priority">16</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field
+                        name="first_name"
+                        placeholder="First Name"
+                        domain="[('is_company', '=', False)]"
+                        attrs="{'invisible': [('is_company', '=', True)]}"
+                    />
+                    <field
+                        name="last_name"
+                        placeholder="Last Name"
+                        domain="[('is_company', '=', False)]"
+                        attrs="{'invisible': [('is_company', '=', True)]}"
+                    />
+                    <newline/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

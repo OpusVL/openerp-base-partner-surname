@@ -1,0 +1,5 @@
+__openerp__.py.bak
+*.pyc
+*.pyo
+*~
+.*.swp
